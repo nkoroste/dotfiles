@@ -1,7 +1,25 @@
 [alias]
 
+    a   = commit --amend
+    br  = branch
+    c   = commit
+    ca  = !git add -A && git commit -av            # Commit all changes.
+    co  = checkout
+    cp  = cherry-pick
+    d2   = diff -- . ':!*package-lock.json' ':!*yarn.lock'
+    dc  = diff --cached -- . ':!*package-lock.json' ':!*yarn.lock'
+    f   = fetch
+    g   = log --graph --pretty=custom           # Show custom graph.
+    git = !exec git                             # Allow `$ git git git...`
+    lc  = shortlog --email --numbered --summary # List contributors.
+    p   = push
+    r   = rebase
+    s   = status
+    st  = status
+    w   = instaweb --httpd=webrick              # Start web-based visualizer.
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits.
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+    l = log --pretty=oneline --pretty=custom -n 20 --graph --abbrev-commit
 
 	# View the current working tree status using the short format.
 	s = status -s
@@ -14,9 +32,6 @@
 
 	# Pull in remote changes for the current repository and all its submodules.
 	p = pull --recurse-submodules
-
-	# Clone a repository including all submodules.
-	c = clone --recursive
 
 	# Commit all changes.
 	ca = !git add -A && git commit -av
@@ -117,6 +132,8 @@
 	frag = magenta bold # line info
 	old = red # deletions
 	new = green # additions
+	newMoved = cyan
+    oldMoved = blue
 
 [color "status"]
 
@@ -124,15 +141,17 @@
 	changed = green
 	untracked = cyan
 
-[commit]
+# [commit]
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	# gpgsign = true
 
 [diff]
 
 	# Detect copies as well as renames.
 	renames = copies
+	# Show blocks of moved text of at least 20
+    colorMoved = zebra
 
 [diff "bin"]
 
@@ -155,6 +174,15 @@
 	default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
+
+[pretty]
+
+    custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+    #                     │        │            │            │             └─ author name
+    #                     │        │            │            └─ message
+    #                     │        │            └─ date (relative)
+    #                     │        └─ decorations (branch, heads or tags)
+    #                     └─ hash (abbreviated)
 
 # URL shorthands
 
@@ -181,3 +209,21 @@
 [init]
 
 	templateDir = ~/.config/git/template/
+
+[user]
+	email = nickkor@gmail.com
+	name = Nick Korostelev
+
+[merge]
+    
+    tool = meld
+
+[mergetool]
+    
+    prompt = true
+
+[mergetool "meld"]
+    
+    trustExitCode = false
+    cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
+
