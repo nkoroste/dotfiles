@@ -23,7 +23,12 @@ brew cask install --appdir="~/Applications" jetbrains-toolbox
 # brew cask install --appdir="~/Applications" intellij-idea-ce
 # brew cask install --appdir="~/Applications" android-studio
 
+# Install OpenJDK
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk8
+# Install Android sdk
 brew install android-sdk
+
 
 # Remove outdated versions from the cellar.
 brew cleanup
