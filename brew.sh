@@ -101,6 +101,8 @@ brew install tree
 # Search tools
 brew install ripgrep
 brew install fd
+brew install htop
+brew install watchman
 
 # Install fuzzy search
 brew install fzf
@@ -113,7 +115,7 @@ brew cask install --appdir="~/Applications" iterm2
 brew cask install --appdir="~/Applications" java
 
 # Development tool casks
-brew cask install --appdir="/Applications" visual-studio-code 
+brew cask install --appdir="/Applications" visual-studio-code
 
 # Remove outdated versions from the cellar.
 brew cleanup

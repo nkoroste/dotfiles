@@ -215,15 +215,15 @@
 	name = Nick Korostelev
 
 [merge]
-    
+
     tool = meld
 
 [mergetool]
-    
+
     prompt = true
 
 [mergetool "meld"]
-    
+
     trustExitCode = false
     cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
 
