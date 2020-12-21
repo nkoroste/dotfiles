@@ -2,6 +2,13 @@
 
 # Install command-line tools using Homebrew.
 
+# install brew if not installed
+which -s brew
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 # Make sure we’re using the latest Homebrew.
 brew update
 
@@ -97,6 +104,8 @@ brew install rename
 brew install tree
 # brew install vbindiff
 # brew install zopfli
+brew install stunnel
+brew services start stunnel
 
 # Search tools
 brew install ripgrep
@@ -111,7 +120,7 @@ $(brew --prefix)/opt/fzf/install
 
 # Core casks
 brew cask install --appdir="/Applications" alfred
-brew cask install --appdir="~/Applications" iterm2
+# brew cask install --appdir="~/Applications" iterm2 # doesn't work on mac for some reason?
 brew cask install --appdir="~/Applications" java
 
 # Development tool casks

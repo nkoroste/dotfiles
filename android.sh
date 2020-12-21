@@ -12,23 +12,22 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Install if we don't have it
 if test ! $(which brew); then
   echo "Installing homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Make sure we’re using the latest Homebrew.
 brew update
 
-brew cask install --appdir="~/Applications" java
+# Install OpenJDK
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk8
+
 brew cask install --appdir="~/Applications" jetbrains-toolbox
 # brew cask install --appdir="~/Applications" intellij-idea-ce
 # brew cask install --appdir="~/Applications" android-studio
 
-# Install OpenJDK
-brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk8
 # Install Android sdk
-brew install android-sdk
-
+# brew install android-sdk # will be installed via AS
 
 # Remove outdated versions from the cellar.
 brew cleanup

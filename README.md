@@ -2,8 +2,17 @@
 
 Added `init.sh` which was inspired from (donnemartin/dev-setup)[https://github.com/donnemartin/dev-setup]
 
+TODO:
+- add github SSH generation scripts
+- Add docs for Alfrad configuration
+- Add docs for:
+  - Configuring Alfrad
+  - Configuring iterm2 Profile
+  - Configuring zsh theme
+  - Configuring zfz for zsh
+
 Some iTerm2 manual configuration:
-In iTerm > Preferences..., in the tab Profiles, create a new one with the "+" icon, and rename it to your first name for example. Then, select Other Actions... > Set as Default. Under the section Window, change the size to something better, like Columns: 125 and Rows: 35. I also like to set General > Working Directory > Reuse previous session's directory. Finally, I change the way the option key works so that I can quickly jump between words as described here.
+In iTerm > Preferences..., in the tab Profiles, create a new one with the "+" icon, and rename it to your first name for example. Then, select Other Actions... > Set as Default. Under the section Window, change the size to something better, like Columns: 125 and Rows: 35. I also like to set General > Working Directory > Reuse previous session's directory. Enable unlimited scrollback under Terminal. Finally, I change the way the option key works so that I can quickly jump between words as described [here](https://apple.stackexchange.com/questions/154292/iterm-going-one-word-backwards-and-forwards).
 
 When done, hit the red "X" in the upper left (saving is automatic in OS X preference panes). Close the window and open a new one to see the size change.
 

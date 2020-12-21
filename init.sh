@@ -31,7 +31,15 @@ function runDots() {
             echo ""
             ./brew.sh
         fi
-        if [ $ARG == "macos" ] || [ $ARG == "all" ]; then
+        if [ $ARG == "android" ] || [ $ARG == "all" ]; then
+            # Run the android.sh Script
+            echo "------------------------------"
+            echo "Setting up Android development environment."
+            echo "------------------------------"
+            echo ""
+            ./android.sh
+        fi
+		if [ $ARG == ".macos" ] || [ $ARG == "all" ]; then
             # Run the macos.sh Script
             # I strongly suggest you read through the commented osx.sh
             # source file and tweak any settings based on your personal
@@ -45,14 +53,6 @@ function runDots() {
             echo "------------------------------"
             echo ""
             ./.macos
-        fi
-        if [ $ARG == "android" ] || [ $ARG == "all" ]; then
-            # Run the android.sh Script
-            echo "------------------------------"
-            echo "Setting up Android development environment."
-            echo "------------------------------"
-            echo ""
-            ./android.sh
         fi
     done
 
