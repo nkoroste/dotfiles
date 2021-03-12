@@ -22,7 +22,7 @@ brew update
 brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk8
 
-brew cask install --appdir="~/Applications" jetbrains-toolbox
+brew install --cask jetbrains-toolbox
 # brew cask install --appdir="~/Applications" intellij-idea-ce
 # brew cask install --appdir="~/Applications" android-studio
 
