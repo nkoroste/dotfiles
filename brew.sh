@@ -49,7 +49,7 @@ fi;
 # brew install vim #--with-override-system-vi
 brew install grep
 # brew install openssh
-brew install screen
+# brew install screen
 # brew install php
 # brew install gmp
 
@@ -65,7 +65,7 @@ brew install screen
 # brew install binutils
 # brew install binwalk
 # brew install cifer
-brew install dex2jar
+# brew install dex2jar
 # brew install dns2tcp
 # brew install fcrackzip
 # brew install foremost
@@ -118,13 +118,28 @@ brew install fzf
 # To install useful key bindings and fuzzy completion:
 $(brew --prefix)/opt/fzf/install
 
-# Core casks
-brew cask install --appdir="/Applications" alfred
-# brew cask install --appdir="~/Applications" iterm2 # doesn't work on mac for some reason?
-brew cask install --appdir="~/Applications" java
+# Java
+brew tap AdoptOpenJDK/openjdk
+brew install --cask adoptopenjdk8
 
 # Development tool casks
-brew cask install --appdir="/Applications" visual-studio-code
+brew install --cask visual-studio-code
+brew install --cask synergy
+
+case $(uname) in
+	Linux)
+    echo "installing linux tools"
+		;;
+	Darwin)
+    echo "installing mac tools"
+    brew install --cask alfred
+    brew install --cask iterm2
+		;;
+	*)
+		echo "Unsupported OS"
+		exit 1
+		;;
+esac
 
 # Remove outdated versions from the cellar.
 brew cleanup
